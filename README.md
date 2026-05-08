@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/banner.png" alt="claude-tabletop — project-aware tabletop exercises for Claude Code" width="100%">
+</p>
+
 # claude-tabletop
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
