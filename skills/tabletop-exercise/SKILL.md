@@ -64,12 +64,14 @@ Ask the setup questions in **one `AskUserQuestion` call** so the user fills out 
 
 Resolve each unflagged input via these question shapes:
 
-1. **Duration** — options: `60m — focused`, `90m — standard (recommended)`, `Half-day (3-4h) — deep dive`, `Full-day workshop`. (`AskUserQuestion` caps at 4 options; `30m` is intentionally not surfaced interactively — note in your follow-up that `--duration 30m` is available as a flag for smoke tests.)
+1. **Duration** — options: `60m — focused`, `90m — standard (recommended)`, `Half-day (3-4h) — deep dive`, `Full-day workshop`. (`AskUserQuestion` caps at 4 options; `30m` is intentionally not in the list. `AskUserQuestion` always exposes an "Other" free-text field — if the user types `30m` there, accept it. They can also re-invoke with `--duration 30m` for a flagless 30-min smoke test.)
 2. **Who's playing?** — options: `Engineering only`, `Eng + Security + Leadership (recommended)`, `Cross-functional — eng + sec + legal + comms + execs`, `Board / executive briefing`. Map the chosen label back to `eng` / `eng+leadership` / `cross-functional` / `board` for downstream use.
 3. **Difficulty** — options: `Basic — newer team, walk-through tone`, `Intermediate — practiced team (recommended)`, `Advanced — high ambiguity, heavy branching`.
 4. **Headcount** — options: `2-4 people — small group, lots of discussion`, `5-8 people — standard size (recommended)`, `9-15 people — larger room, breakouts useful`, `16+ — workshop format, breakout groups required`.
 
-After the user answers, give a one-line confirmation of the four resolved values ("Got it — 90m, cross-functional, intermediate, 5-8 people. Let me line up three scenarios that fit."), then continue to Step 2. Don't re-ask or second-guess.
+After the user answers, give a one-line confirmation of **all four resolved values** — flag-supplied and interactive-answered alike, in a consistent order (duration · audience · difficulty · headcount). Example: "Got it — 90m, cross-functional, intermediate, 5-8 people. Let me line up three scenarios that fit." Then continue to Step 2. Don't re-ask or second-guess.
+
+**When Step 1.5 is skipped entirely** (all four flags passed): still emit the same one-line confirmation of the four resolved values before moving on. This is the user's only signal that the skill registered their flags correctly.
 
 **How these inputs flow into later steps** (referenced again where they apply):
 

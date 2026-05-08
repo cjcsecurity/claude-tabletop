@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- `/tabletop-exercise` now prompts interactively for setup. After project recon, the skill asks one round of questions (duration, audience/departments, difficulty, headcount) via a single `AskUserQuestion` call before scenario triage. Replaces the previous flag-only interface.
+- All previous flags (`--duration`, `--audience`, `--difficulty`, `--scenario`, `--frameworks`, `--no-html`, `--campaign`, `--domain`) are retained as a power-user fast path: passing a flag skips the matching interactive prompt, so scripted invocations stay flagless-equivalent.
+
+### Added
+
+- New `--headcount <range>` flag (`2-4` / `5-8` / `9-15` / `16+`) and matching interactive prompt. The headcount value drives role-table row count, pre-populates `forms/attendance.md` with the right number of slots, and adds a breakout-group recommendation in `facilitator-notes.md` for `9-15` and `16+`.
+- The audience / departments selection now also influences which roles appear in the role table (e.g., `cross-functional` adds Comms Lead and Legal/Privacy) and biases NPC selection from `references/persona-bank.md`.
+
 ## [0.1.0] — 2026-05-07
 
 Initial public release.
