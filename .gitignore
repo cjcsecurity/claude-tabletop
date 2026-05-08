@@ -1,0 +1,24 @@
+# User-generated exercise output should never live in this source repo
+tabletop-exercises/
+**/tabletop-exercises/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Test scratch
+/tmp/
+.tmp/
+*.log
+
+# Skill working dirs (Claude Code)
+.claude/local/
+.claude/cache/
+
+# Vercel CLI metadata (per-deploy linking; do not commit)
+.vercel/
