@@ -1,0 +1,15 @@
+# Default owner for everything in the repo.
+# When a PR touches any file, GitHub auto-requests review from these handles.
+*                                       @cjcsecurity
+
+# Skill source — extra-careful review, since downstream installs run these
+/skills/                                @cjcsecurity
+
+# HTML runbook template — the primary user-facing surface
+/skills/tabletop-exercise/assets/       @cjcsecurity
+
+# Reference catalogs — scenarios, injects, personas, framework controls
+/skills/tabletop-exercise/references/   @cjcsecurity
+
+# Live demo — public-facing artifact
+/examples/live-demo/                    @cjcsecurity
